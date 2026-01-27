@@ -1,25 +1,37 @@
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { Resend } from "resend";
 
 export async function POST(request) {
   try {
+    // ✅ Read env var at request time (not build/import time)
+    const apiKey = process.env.RESEND_API_KEY;
+
+    // ✅ If not set, don’t crash build — return a friendly error at runtime
+    if (!apiKey) {
+      console.error("Missing RESEND_API_KEY environment variable.");
+      return Response.json(
+        { error: "Email service is not configured." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
+
     const { name, email, subject, message, honeypot } = await request.json();
 
     // Anti-spam honeypot check
     if (honeypot) {
-      return Response.json({ error: 'Spam detected' }, { status: 400 });
+      return Response.json({ error: "Spam detected" }, { status: 400 });
     }
 
     // Validation
     if (!name || !email || !subject || !message) {
-      return Response.json({ error: 'All fields are required' }, { status: 400 });
+      return Response.json({ error: "All fields are required" }, { status: 400 });
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return Response.json({ error: 'Invalid email format' }, { status: 400 });
+      return Response.json({ error: "Invalid email format" }, { status: 400 });
     }
 
     // Sanitize inputs
@@ -27,14 +39,13 @@ export async function POST(request) {
       name: name.trim().slice(0, 100),
       email: email.trim().slice(0, 100),
       subject: subject.trim().slice(0, 200),
-      message: message.trim().slice(0, 2000)
+      message: message.trim().slice(0, 2000),
     };
 
-    // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: ['ngogajoconde@gmail.com'],
-      replyTo: sanitizedData.email,
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: ["ngogajoconde@gmail.com"],
+      replyTo: sanitizedData.email, // keep as you had it
       subject: `Portfolio Contact: ${sanitizedData.subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -50,7 +61,7 @@ export async function POST(request) {
           
           <div style="background: white; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
             <h3 style="color: #333; margin-top: 0;">Message:</h3>
-            <p style="line-height: 1.6; color: #555;">${sanitizedData.message.replace(/\n/g, '<br>')}</p>
+            <p style="line-height: 1.6; color: #555;">${sanitizedData.message.replace(/\n/g, "<br>")}</p>
           </div>
           
           <div style="margin-top: 20px; padding: 15px; background: #eff6ff; border-radius: 8px; font-size: 14px; color: #1e40af;">
@@ -61,18 +72,17 @@ export async function POST(request) {
     });
 
     if (error) {
-      console.error('Resend error:', error);
-      return Response.json({ error: 'Failed to send email' }, { status: 500 });
+      console.error("Resend error:", error);
+      return Response.json({ error: "Failed to send email" }, { status: 500 });
     }
 
-    return Response.json({ 
-      success: true, 
-      message: 'Email sent successfully',
-      id: data?.id 
+    return Response.json({
+      success: true,
+      message: "Email sent successfully",
+      id: data?.id,
     });
-
   } catch (error) {
-    console.error('Contact form error:', error);
-    return Response.json({ error: 'Internal server error' }, { status: 500 });
+    console.error("Contact form error:", error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }
