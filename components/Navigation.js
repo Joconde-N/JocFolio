@@ -51,7 +51,7 @@ export default function Navigation() {
         height: '70px'
       }}>
         <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text)' }}>
-          {siteConfig.name}
+          {siteConfig.logoText}
         </div>
         
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>

@@ -1,9 +1,10 @@
 export const siteConfig = {
   name: "Ngoga Joconde",
+  logoText: "NJ",
   title: "Full Stack Developer",
   description: "Passionate about building innovative web applications that solve real-world problems.",
   email: "jocondengoga@gmail.com",
-  cvLink: "https://drive.google.com/file/d/YOUR_FILE_ID/view",
+  cvLink: "https://drive.google.com/file/d/1O3rnhT_elEfjZIAFWBWWVeMbs5sjtwVx/view",
   social: {
     github: "https://github.com/Joconde-N",
     linkedin: "https://www.linkedin.com/in/joconde-ngoga/",
@@ -31,8 +32,10 @@ export const skills = {
   tools: [
     { name: "Git", level: "Intermediate" },
     { name: "GitHub", level: "Intermediate" },
+    { name: "GitLab", level: "Beginner" },
     { name: "VS Code", level: "Advanced" },
-    { name: "Vercel", level: "Beginner" }
+    { name: "Vercel", level: "Beginner" },
+    { name: "netlify", level: "Beginner" }
   ],
   design: [
     { name: "Figma", level: "Beginner" },
@@ -55,18 +58,18 @@ export const projects = [
     id: 2,
     title: "TikeYanjye",
     description: "TikeYanjye is a modern bus ticket reservation web app that allows users to search trips across Rwanda, select seats, make secure payments, and receive instant ticket confirmations, all through a clean, user-friendly interface.",
-    image: "/projects/project2.jpg",
+    image: "/projects/tikeyanjye.PNG",
     tech: ["React", "JavaScript", "Vite", "TailwindCSS"],
     liveUrl: "https://tikeyanjye.netlify.app/",
     githubUrl: "https://github.com/Joconde-N/TikeYanjye"
   },
   {
     id: 3,
-    title: "Project Three",
-    description: "Interactive dashboard with data visualization and analytics for business intelligence.",
-    image: "/projects/project3.jpg",
-    tech: ["React", "Python", "SQL"],
-    liveUrl: "https://project3.example.com",
-    githubUrl: "https://github.com/ngogajoconde/project3"
+    title: "CarLink",
+    description: "Car-Link is a car rental booking application that allows users to browse a catalog of vehicles, view detailed information about each car, and manage their bookings. The app features a multi-page interface with a car listing page, individual car detail pages, and a bookings management section.",
+    image: "/projects/carlink.PNG",
+    tech: ["React", "Vite", "Tailwind css", "JavaScript"],
+    liveUrl: "https://carslink.netlify.app/",
+    githubUrl: "https://github.com/Joconde-N/carLink"
   }
 ];
