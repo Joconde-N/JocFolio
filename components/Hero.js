@@ -51,9 +51,9 @@ export default function Hero() {
               lineHeight: '1.8',
               color: '#d0d0d0'
             }}>
-              {siteConfig.description} I specialize in creating scalable, user-friendly applications 
-              using modern technologies. With a strong foundation in both frontend and backend development, 
-              I transform ideas into elegant digital solutions that make a real impact.
+              I enjoy building modern web applications that solve real-world problems. 
+              My focus is on creating clean, user-friendly interfaces and steadily developing reliable backend functionality using modern web technologies. 
+              With a growing foundation in both development and design, I enjoy turning ideas into thoughtful digital solutions and continuously improving my skills through hands-on projects.
             </p>
             
             <div style={{

@@ -59,8 +59,8 @@ export default function About() {
               color: 'var(--text-light)',
               marginBottom: '1.5rem'
             }}>
-              I'm a passionate full-stack developer with expertise in building modern web applications. 
-              I love turning ideas into reality through clean, efficient code and intuitive user experiences.
+              I'm a web developer and designer with a strong interest in building modern, intuitive web applications that balance functionality and visual clarity. 
+              I enjoy turning ideas into practical, user-friendly experiences through clean, maintainable code and thoughtful design decisions.
             </p>
             
             <p style={{
@@ -68,9 +68,9 @@ export default function About() {
               lineHeight: '1.8',
               color: 'var(--text-light)'
             }}>
-              With a strong foundation in both frontend and backend technologies, I create scalable 
-              solutions that make a difference. I'm always eager to learn new technologies and take on 
-              challenging projects.
+              I'm currently strengthening my skills across both frontend and backend development by working on real-world projects that challenge me to think critically and improve continuously. 
+              Alongside development, I have a growing interest in design and enjoy creating interfaces that are simple, accessible, and engaging. 
+              I'm curious, motivated, and always eager to learn new technologies while taking on challenges that push my abilities forward and help me grow toward becoming a well-rounded full-stack developer.
             </p>
           </div>
         </div>
