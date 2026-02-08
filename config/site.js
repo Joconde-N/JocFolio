@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "Full Stack Developer",
   description: "Passionate about building innovative web applications that solve real-world problems.",
   email: "jocondengoga@gmail.com",
-  cvLink: "https://drive.google.com/file/d/1O3rnhT_elEfjZIAFWBWWVeMbs5sjtwVx/view",
+  cvLink: "https://drive.google.com/file/d/1HOChcrck5-pmmW9-c_3ZYFKabmqyFE6B/view",
   social: {
     github: "https://github.com/Joconde-N",
     linkedin: "https://www.linkedin.com/in/joconde-ngoga/",
